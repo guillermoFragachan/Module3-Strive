@@ -13,7 +13,6 @@ function sumInt(value1, value2){
     
 }
 
-console.log(sumInt(1, 1)  )
 
 
 /* 2. Create a function to check two given integers. Return `true` if one of them is 50 or if their sum is 50. */
@@ -29,7 +28,6 @@ function trueOrNot (value1, value2){
 
 }
 
-console.log(trueOrNot(20, 20) )
 
 
 /* 3. Create a function to remove a character at a specified position from a given string: pass the position and the string as parameters, return the new string. */
@@ -37,22 +35,48 @@ function remove(position, str){
 
    
 
-    return  str = str.slice(0, position) + str.substr(position)
+    return  str = str.slice(0, position) + str.substr(position +1 )
 }
 
 
-console.log(remove(3, 'hola'))
 
 
 /* 4. Create a function to find and return the largest of three given integers. */
+
+function findLargest(value1, value2){
+    if(value1 > value2){
+        return value1
+    }else{
+        return value2
+    }
+}
 
 
 /* 5. Create a function to check if two numbers are in the range 40-60 or 70-100. 
     Return `true` if they do, return `false` if one (or both) don't. */
 
+    function evaluate(a, b){
+        if (a >= 40 && a <=60 && b >= 40 && b <= 60){
+            return true
+        }else if(a >= 70 && a <=100 && b >= 70 && b <= 100){
+            return true
+        }else{
+            return false
+        }
+    }
 
+
+    console.log(evaluate(40, 7))
 /* 6. Create a function to create a new string composed of a specified number of copies of a given string. 
     Pass the string and the number of copies as parameters. */
+
+    function copyString(n, str){
+        for(let i = 0; i < n; i++){
+            console.log(str)
+        }
+    }
+
+    
 
 
 /* 7. Create a function to display the city name if the string begins with "Los" or "New". 
