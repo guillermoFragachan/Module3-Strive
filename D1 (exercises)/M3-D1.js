@@ -242,12 +242,30 @@ console.log(findLeven(evenNumbersarrayE))
 
 
     function negativePositive (int1, int2){
-
+        if (int1 < 0 && int2 > 0){
+            return true
+        }else if(int1 > 0 && int2 < 0){
+            return true
+        }else{
+            return false
+        }
     }
+
+    console.log(negativePositive(-1, 1))
 
 
 /* 16. Create a function to create and return a new string where the first 3 characters and in lower case and the others are in upper case. 
     If the string's length is less than 3, convert the whole string into uppercase. Pass the original string as a parameter. */
+
+     let randomSTR = 'Convert'
+
+    function stringMod (str){
+
+        return str.toUpperCase().slice(0,3) + str.slice(3)
+
+    }
+
+ console.log(stringMod(randomSTR))
 
 
 /* 17. Create a function to calculate the sum of two integers (passed as parameters). 
