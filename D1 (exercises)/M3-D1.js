@@ -82,21 +82,96 @@ function findLargest(value1, value2){
 /* 7. Create a function to display the city name if the string begins with "Los" or "New". 
     Pass the city name as a parameter. Return `false` if they start with a different string. */
 
+    function cityDisplay(city){
+
+        let nameFirstLetters =  city.slice( city.lenght, 3)
+
+        if(nameFirstLetters=== 'los' || nameFirstLetters === 'new'){
+            return true
+        }else{
+            return false
+        }
+
+
+    }
+
+    console.log(cityDisplay('new angeles'))
+
 
 /* 8. Create a function to calculate and return the sum of all elements from an array with 3 elements. 
     Pass the array as a parameter. */
 
+    let a = [0, 2, 3]
+    let sum = 0
+    
+    function sumInArray(arr){
+        
+        
+        for(let i = 0; i<arr.lenght; i++){
+            
+             sum = sum + arr[i]
+             
+             
+        }
+        return sum
+        
+    }
+
+console.log(sumInArray(a))
 
 /* 9. Create a function to test if an array of lenght 2 contains 1 OR 3. 
     Return `true` is it does, `false` if it doesn't. */
 
+    let b = [3,2]
+    function testAray(arr){
 
+        if(arr[0]=== 1 || arr[0]=== 3 ){
+            return true
+        }else if(arr[1]=== 3 || arr[1]=== 3 ){
+            return true
+
+        }else{
+            return false
+        }
+
+    }
+
+
+console.log(    testAray(b)
+)
 /* 10. Create a function to test if an array of lenght 2 DOES NOT contain 1 or 3. 
     Return `true` if it doesn't, `false` if it does. */ 
 
 
+
+    function testAray2(arr){
+        if(arr[0]=== 1 || arr[0]=== 3 ){
+            return false
+        }else if(arr[1]=== 3 || arr[1]=== 3 ){
+            return false
+
+        }else{
+            return true
+        }
+    }
+
+
 /* 11. Create a function to find the longest string from a given array of strings. 
     Pass the array as parameter and return the longest string. */ 
+
+    let strArr = ['medium str', 'shorter', 'longest string']
+
+    function longestSTR(a){
+        for(let i = 0; i<a.lenght;i++){
+
+
+        }
+        console.log(a.lenght)
+
+    }
+
+   longestSTR(strArr)
+
 
 
 /* 12. Create a function to find the types of a given angle:
