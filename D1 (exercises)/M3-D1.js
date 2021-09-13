@@ -18,6 +18,19 @@ console.log(sumInt(1, 1)  )
 
 /* 2. Create a function to check two given integers. Return `true` if one of them is 50 or if their sum is 50. */
 
+function trueOrNot (value1, value2){
+    if(value1+value1 > 50){
+        return true
+    }else if(value1 > 50 || value2 > 50){
+        return true
+    }else{
+        return false
+    }
+
+}
+
+trueOrNot(25, 25) 
+
 
 /* 3. Create a function to remove a character at a specified position from a given string: pass the position and the string as parameters, return the new string. */
 
