@@ -1,6 +1,7 @@
 /* 1. Given a string (as a parameter), return the character that is most commonly used. */
 function mostCommoC(){
-    
+
+
 }
 
 console.log(mostCommoC('just an example'))
@@ -10,10 +11,45 @@ console.log(mostCommoC('just an example'))
     Do not consider spaces or punctuation, make the whole word lower case. 
     Return `true` if the words are anagram, return `false` if they aren't. */
 
+function anagramChecker(str){
+    let boolean 
+
+    let reverseARR = []
+    str.split('')
+    for(let i = str.length-1; i>=0;i--){
+        reverseARR.push(str[i])
+    }
+    
+
+    if(reverseARR.join('') === str){
+        return true
+    }else{
+         return false
+    }
+
+     
+}
+
+console.log(anagramChecker('21'))
 
 /* 3. Given a word and a list of possible anagrams (both passed as parameters), return the correct list of anagrams: 
     Ex. "listen" is the word, ["enlist", "google", "inlets"] are the possibilities: the output should be ["enlist", "inlets"]
 */
+
+function reverese(str){
+
+    let newARR= []
+   str.split('')
+    for(let i = str.length-1; i>=0;i--){
+        newARR.push(str[i])
+    }
+
+
+   return  newARR.join('')
+
+}
+
+console.log(reverese('reverse'))
 
 /* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
 
