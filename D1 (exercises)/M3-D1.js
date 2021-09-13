@@ -1,5 +1,20 @@
 /* 1. Create a function to calculate the sum of the two given integers. If the two values are the same, return triple their sum. */
 
+function sumInt(value1, value2){
+
+    if(value1 === value2){
+
+        return (value1 + value2) * 3
+    }else{
+        return value1 + value2
+    }
+
+
+    
+}
+
+console.log(sumInt(1, 1)  )
+
 
 /* 2. Create a function to check two given integers. Return `true` if one of them is 50 or if their sum is 50. */
 
