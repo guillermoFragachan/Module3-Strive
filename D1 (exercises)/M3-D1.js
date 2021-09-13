@@ -271,6 +271,18 @@ console.log(findLeven(evenNumbersarrayE))
 /* 17. Create a function to calculate the sum of two integers (passed as parameters). 
     If the sum is in the 50-80 range, return `65`, otherwise, return `80`. */
 
+    function sumOf2int(int1, int2){
+        let sum = int1 + int2
+        if(sum >= 50 && sum <= 80){
+            return 65
+        }else{
+            return 80
+        }
+
+    }
+
+    console.log(sumOf2int(20, 61))
+
 
 /* 18. Create a function to convert a number (passed as a parameter) into a string, basing yourself on this example: 
     The number has 3 as a factor ⇒ return `Diego`
@@ -280,6 +292,54 @@ console.log(findLeven(evenNumbersarrayE))
     ⚠️ The factor is an integer which evenly divides a number without leaving a remainder. One number can have more than one factor, in that case you should return both names. 
 Ex. 15 has both 3 and 5 has factors: the function will return `DiegoRiccardo` */
 
+function returnBasedOnFactor(num){
+
+    let nameR = ''
+
+
+    // check if number is a factor
+    if(num % 3 === 0) {
+        nameR = nameR + "Diego"
+
+        if( num % 5 ===0){
+            nameR = nameR + 'Riccardo'
+        }else if(num % 7 === 0){
+            nameR = nameR + 'Stefano'
+        }
+
+    }else if( num % 5 ===0 ){
+        nameR = nameR + 'Riccardo'
+         if(num % 7 === 0){
+            nameR = nameR + 'Stefano'
+        }
+    }else if(num % 7 === 0){
+        nameR = nameR + 'Stefano'
+    }else{
+        return num
+    }
+
+    return nameR
+
+
+}
+
+
+
+console.log(returnBasedOnFactor(15))
+
 
 /* 19. Create a function that that takes a phrase as a parameter and returns its acronym.
 Ex. British Broadcasting Corporation returns `BBC` */
+
+function acronymMaker(str){
+    let firstLetters = []
+   
+   for(let i = 0; i< str.split(' ').length; i++){
+    firstLetters.push(str.split(' ')[i].slice(0,1))
+   }
+   
+   return firstLetters.join('').toLocaleUpperCase()
+
+
+
+}
