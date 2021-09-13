@@ -1,35 +1,73 @@
 /* 1. Given a string (as a parameter), return the character that is most commonly used. */
-function mostCommoC(str){
-    let max = 0;
-    let maxChar = '';
-  str.split('').forEach(function(char){
-    if(str.split(char).length > max) {
-        max = str.split(char).length;
+function maxChar(str) {
+    const charMap = {}
+    let max = 0
+    let maxChar = ''
+  
+    for (let char of str) {
+      if (charMap[char]) {
+        charMap[char]++
+      } else {
+        charMap[char] = 1
+      }
+    }
+  
+    for (let char in charMap) {
+      if (charMap[char] > max) {
+        max = charMap[char]
         maxChar = char
-     }
-  })
-  return maxChar
+      }
+    }
+  
+    return maxChar
+  }
 
-}
-
-console.log(mostCommoC('just an example'))
+console.log(maxChar('justt'))
 
 
 /* 2. Check if two strings (passed as parameters) are anagrams of each other. 
     Do not consider spaces or punctuation, make the whole word lower case. 
     Return `true` if the words are anagram, return `false` if they aren't. */
 
-function anagramChecker(str){
+function anagramChecker(str1, str2){
+    
+    if(str1.split('').sort().join('')===str2.split('').sort().join('')){
+        return true
+    }else{
+        return false
+    }
 
+
+    
 }
 
 
-console.log(anagramChecker('21'))
+console.log(anagramChecker('21','21' ))
 
 /* 3. Given a word and a list of possible anagrams (both passed as parameters), return the correct list of anagrams: 
     Ex. "listen" is the word, ["enlist", "google", "inlets"] are the possibilities: the output should be ["enlist", "inlets"]
 */
 
+let arrExample = ['example', 'enlist', 'dsada', 'inlets']
+
+function anagramWordChecker(arr){
+    let newArr = []
+    for(let i = 0; i<arr.length; i++){
+       newArr.push( arr[i].split('').sort().join(''))
+
+    }
+    newArr.reverse()
+    let arrAcro = []
+   for(let i = 0; i<newArr.length; i++){
+    if(newArr[0]===newArr[i]){
+        arrAcro.push(newArr[i])
+    }
+   }
+
+    return arrAcro
+}
+
+console.log(anagramWordChecker(arrExample))
 
 /* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
 
