@@ -159,19 +159,21 @@ console.log(    testAray(b)
 /* 11. Create a function to find the longest string from a given array of strings. 
     Pass the array as parameter and return the longest string. */ 
 
-    let strArr = ['medium str', 'shorter', 'longest string']
 
-    function longestSTR(a){
-        for(let i = 0; i<a.lenght;i++){
-
-
-        }
-        console.log(a.lenght)
-
-    }
-
-   longestSTR(strArr)
-
+let arraywhatever = ['dd', 'lllll', 'dsada']
+    function findLongestWord(array) {
+        let longestWord = ""
+      
+        array.forEach(function(word) {
+          if(word.length > longestWord.length) {
+            longestWord = word
+          }
+        })
+      
+        return longestWord
+      }
+      
+console.log(findLongestWord(arraywhatever))
 
 
 /* 12. Create a function to find the types of a given angle:
@@ -182,16 +184,66 @@ console.log(    testAray(b)
 
     Pass the angle as a parameter.
 */
+function getAngle(angle) {
+    if(angle < 90) {
+      return "Acute"
+    }
+    if(angle === 90) {
+      return "Right"
+    }
+    if(angle < 180) {
+      return "Obtuse"
+    }
+    return "Straight"
+  }
+  
+
+
 
 
 /* 13. Create a function to find and return the index of the greatest element of a given array of integers that you passed as a parameter. */
 
+let givenrArray = [21, 321, 4344]
+function gelement(arr){
+
+    arr.sort()
+    let n = arr.lenght
+     return arr[arr.length-1]
+
+}
+
+console.log(gelement(givenrArray))
+
+
 
 /* 14. Create a function to find and return the largest **even** number from an array of integers that is passed a parameter. */
+let  evenNumbersarrayE = [1, 2, 3, 4, 5, 6];
+
+let largestEvenNumber = 0
+function findLeven(arr){
+    let listOfeven = []
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                listOfeven.push(arr[i])
+            }
+        }
+
+        listOfeven.sort()
+        return largestEvenNumber = listOfeven[listOfeven.length-1]
+
+    }
+
+console.log(findLeven(evenNumbersarrayE))
 
 
 /* 15. Create a function to check from two given integers (passed as parameters) if one is positive and the other is negative. 
     Return `true` if that's the case, return `false` if it's not. */
+
+
+    function negativePositive (int1, int2){
+
+    }
 
 
 /* 16. Create a function to create and return a new string where the first 3 characters and in lower case and the others are in upper case. 
