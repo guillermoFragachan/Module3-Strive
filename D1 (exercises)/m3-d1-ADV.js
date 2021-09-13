@@ -1,6 +1,14 @@
 /* 1. Given a string (as a parameter), return the character that is most commonly used. */
-function mostCommoC(){
-
+function mostCommoC(str){
+    let max = 0;
+    let maxChar = '';
+  str.split('').forEach(function(char){
+    if(str.split(char).length > max) {
+        max = str.split(char).length;
+        maxChar = char
+     }
+  })
+  return maxChar
 
 }
 
@@ -22,20 +30,6 @@ console.log(anagramChecker('21'))
     Ex. "listen" is the word, ["enlist", "google", "inlets"] are the possibilities: the output should be ["enlist", "inlets"]
 */
 
-function reverese(str){
-
-    let newARR= []
-   str.split('')
-    for(let i = str.length-1; i>=0;i--){
-        newARR.push(str[i])
-    }
-
-
-   return  newARR.join('')
-
-}
-
-console.log(reverese('reverse'))
 
 /* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
 
@@ -92,6 +86,22 @@ console.log(reversInt(123))
 
 /* 7. Create a function that, given a string as a parameter, returns a new string which is the original string, but reversed: 
 "hello" ⇒ "olleh" */
+
+
+function reverese(str){
+
+    let newARR= []
+   str.split('')
+    for(let i = str.length-1; i>=0;i--){
+        newARR.push(str[i])
+    }
+
+
+   return  newARR.join('')
+
+}
+
+console.log(reverese('reverse'))
 
 
 /* 8. Create a function that takes an array and a "chuck size" as parameters. 
