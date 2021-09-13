@@ -12,23 +12,9 @@ console.log(mostCommoC('just an example'))
     Return `true` if the words are anagram, return `false` if they aren't. */
 
 function anagramChecker(str){
-    let boolean 
 
-    let reverseARR = []
-    str.split('')
-    for(let i = str.length-1; i>=0;i--){
-        reverseARR.push(str[i])
-    }
-    
-
-    if(reverseARR.join('') === str){
-        return true
-    }else{
-         return false
-    }
-
-     
 }
+
 
 console.log(anagramChecker('21'))
 
@@ -54,9 +40,38 @@ console.log(reverese('reverse'))
 /* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
 
 
+function polindChecker(str){
+    let boolean 
+
+    let reverseARR = []
+    str.split('')
+    for(let i = str.length-1; i>=0;i--){
+        reverseARR.push(str[i])
+    }
+    
+
+    if(reverseARR.join('') === str){
+        return true
+    }else{
+         return false
+    }
+}
+     
+
+
 /* 5. Given an integer (as parameter), return an integer which digitas are the same as the original number, but reversed.
     Ex: 189 ⇒ 981 */
 
+function reversInt(int){
+    let reversedINTER = int.toString().split('').reverse().join('')
+    
+
+
+    return reversedINTER
+
+}
+
+console.log(reversInt(123))
 
 /* 6. Write a function that takes a positive number X as a parameter. The function should output (as console.log) a step shaped string with X level usign the `#` character. Make sure the steps are on the right hand side:
 
