@@ -1,4 +1,9 @@
 /* 1. Given a string (as a parameter), return the character that is most commonly used. */
+function mostCommoC(){
+    
+}
+
+console.log(mostCommoC('just an example'))
 
 
 /* 2. Check if two strings (passed as parameters) are anagrams of each other. 
