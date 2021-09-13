@@ -160,6 +160,18 @@ Example with X = 3
 ```
 */
 
+function createPyramid(rows)
+{
+    for (let i = 0; i < rows; i++) {
+        var output = ''
+        for (let j =0; j < rows - i; j++) output += ' '
+        for (let k = 0; k <= i; k++) output += '* '
+        console.log(output)
+    } 
+}
+
+console.log(createPyramid(7))
+
 
 
 /* 10. Write a function that accepts an integer N and returns a NxN spiral matrix:
