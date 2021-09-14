@@ -38,6 +38,7 @@ function remove(position, str){
     return  str = str.slice(0, position) + str.substr(position +1 )
 }
 
+console.log(remove(, 'whatever'))
 
 
 
@@ -297,7 +298,6 @@ function returnBasedOnFactor(num){
     let nameR = ''
 
 
-    // check if number is a factor
     if(num % 3 === 0) {
         nameR = nameR + "Diego"
 
@@ -343,3 +343,5 @@ function acronymMaker(str){
 
 
 }
+
+console.log(acronymMaker(''))
