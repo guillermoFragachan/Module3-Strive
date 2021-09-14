@@ -160,11 +160,15 @@ console.log(reverese('reverse'))
 
 let theGarr = [1,2,3,4,5,6]
 
-function devideByChunk(arr, chunk){
-    let newArr= []
-    for(let i = 0; i<chunk; i++){
+function devideByChunk(arr, n){
+    const chunks = []
+    let i = 0
+  let length = arr.length
 
-    }
+  while (i < length) {
+    chunks.push(arr.slice(i, (i += n)))
+  }
+  return chunks
 }
 
 console.log(devideByChunk(theGarr, 4))
@@ -214,17 +218,22 @@ N = 4
 
 function matrixGen(n){
     let newArr = []
-    let array1D = []
+    
 
     for(let v = 0; v<n; v++){
         
-        newArr.push(array1D)     
+        newArr.push([])     
         
     }
     for(let i = 0; i<n; i++){
-        let value  = Math.floor(Math.random()*10)
-        newArr[i].push(value)
         
+            
+        
+        for(let v = 0; v<n; v++){
+            let value = Math.floor(Math.random()*10)
+            newArr[i].push(value)   
+            
+        }
         
     }
     
