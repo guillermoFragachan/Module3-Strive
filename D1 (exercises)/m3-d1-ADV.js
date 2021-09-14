@@ -122,6 +122,16 @@ console.log(reversInt(123))
 */ 
 
 
+function createhalf(rows)
+{
+    for (let i = 0; i < rows; i++) {
+        let output = ''
+        for (let j =0; j < rows - i; j++) output += '*'
+        console.log(output)
+    } 
+}
+
+console.log( createhalf(2))
 /* 7. Create a function that, given a string as a parameter, returns a new string which is the original string, but reversed: 
 "hello" ⇒ "olleh" */
 
@@ -148,6 +158,16 @@ console.log(reverese('reverse'))
     array: [1, 2, 3, 4, 5], chunk size: 4 → [[ 1, 2, 3, 4], [5]]
 */
 
+let theGarr = [1,2,3,4,5,6]
+
+function devideByChunk(arr, chunk){
+    let newArr= []
+    for(let i = 0; i<chunk; i++){
+
+    }
+}
+
+console.log(devideByChunk(theGarr, 4))
 
 /* 9. Write a function that accepts a positive number X as parameter. 
 The function should console.log a pyramid shape with N levels built using the `#` character. 
@@ -163,7 +183,7 @@ Example with X = 3
 function createPyramid(rows)
 {
     for (let i = 0; i < rows; i++) {
-        var output = ''
+        let output = ''
         for (let j =0; j < rows - i; j++) output += ' '
         for (let k = 0; k <= i; k++) output += '* '
         console.log(output)
@@ -191,3 +211,27 @@ N = 4
 [10,  9,  8, 7]]
 
 */
+
+function matrixGen(n){
+    let newArr = []
+    let array1D = []
+
+    for(let v = 0; v<n; v++){
+        
+        newArr.push(array1D)     
+        
+    }
+    for(let i = 0; i<n; i++){
+        let value  = Math.floor(Math.random()*10)
+        newArr[i].push(value)
+        
+        
+    }
+    
+   
+
+
+    return newArr
+}
+
+console.log(matrixGen(3))
