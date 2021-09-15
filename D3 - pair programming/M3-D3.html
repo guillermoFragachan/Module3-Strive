@@ -36,7 +36,9 @@
         3. Replace the **Edit** buttons on the cards with a **Hide** button. 
         4. When pressed, this button should make the whole card disappear. 
         5. Replace the **9 mins** string in the cards with the ID of the image
-        6. Add in the "jumbotron" a search input field. Use the value of this input to search and load new images and replace existing ones. You may add a third button for this exercise. 
+        6. Add in the "jumbotron" a search input field. Use the value of this input to 
+        search and load new images and replace existing ones. You may add a third button 
+        for this exercise. 
 
     💻EXTRAS:
 
@@ -124,6 +126,10 @@
           font-size: 3.5rem;
         }
       }
+
+      .example{
+        visibility: hidden;
+      }
     </style>
   </head>
   <body>
@@ -201,6 +207,11 @@
           <p>
             <a href="#" class="btn btn-primary my-2">Load Images</a>
             <a href="#" class="btn btn-secondary my-2">Load Secondary Images</a>
+            
+          </p>
+          <p>
+            <input type="text" name="" id="searchBox">
+            <a href="#" id='buttonSearch'class="btn btn-info my-2">Search</a>
           </p>
         </div>
       </section>

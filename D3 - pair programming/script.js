@@ -10,25 +10,26 @@ let dataArray2 = []
 // fetch URL + QUERY 
 fetch("https://api.pexels.com/v1/search?query=people", {
     headers: {
-        Authorization: "563492ad6f917000010000019b5a12d6ac8c42e39efb9e162087db71"
+        Authorization: "563492ad6f9170000100000129ca9a39898c4d60b54d8276cc4d9c80"
     }
 })
     .then(resp => {
         return resp.json()
     })
     .then(data => {
-        //console.log(data.photos)
+        console.log(data.photos)
        // console.log(data.photos[0].src.medium)
         for(let i = 0; i<data.photos.length; i++){
             dataArray.push(data.photos[i])
         }
         
     })
-// API key:  563492ad6f917000010000019b5a12d6ac8c42e39efb9e162087db71
+// API key:  563492ad6f9170000100000129ca9a39898c4d60b54d8276cc4d9c80
+
 
 fetch("https://api.pexels.com/v1/search?query=dogs", {
     headers: {
-        Authorization: "563492ad6f917000010000019b5a12d6ac8c42e39efb9e162087db71"
+        Authorization: "563492ad6f9170000100000129ca9a39898c4d60b54d8276cc4d9c80"
     }
 })
     .then(resp => {
@@ -36,6 +37,7 @@ fetch("https://api.pexels.com/v1/search?query=dogs", {
     })
     .then(data => {
         for(let i = 0; i<data.photos.length; i++){
+
             dataArray2.push(data.photos[i])
         }
         
@@ -43,12 +45,19 @@ fetch("https://api.pexels.com/v1/search?query=dogs", {
 
 function loadIMGs(data) {
     let SVGNode = document.querySelectorAll('.card.mb-4.shadow-sm')
+    let mins9Node = document.getElementsByClassName('text-muted')
+
 
     for (let i = 0; i < SVGNode.length; i++) {
         SVGNode[i].removeChild(SVGNode[i].children[0])
         let IMGNode = document.createElement('img')
         IMGNode.src = data[i].src.medium
         SVGNode[i].insertBefore(IMGNode, SVGNode[i].firstChild);
+    }
+
+    for(let i = 0; i < mins9Node.length; i++){
+        mins9Node[i].innerText=data[i].id
+
     }
 
 }
@@ -64,17 +73,64 @@ buttonNodeSecond.addEventListener('click', () => {return loadIMGs(dataArray2)})
 let buttonHide = document.querySelectorAll('.btn-group > button:nth-child(2)')
 
 
+
+
+
 function hideIMG(){
     for(let i=0; i<buttonHide.length; i++){
        
-        console.log(buttonHide[i])
+        
         buttonHide[i].innerText='Hide'
         buttonHide[i].addEventListener('click', ()=>{
-            buttonHide[i].parentElement.parentElement.parentElement.parentElement.firstChild.remove()
+            buttonHide[i].parentElement.parentElement.parentElement.parentElement.children[0].classList.toggle('example')
         })
 
     }
 }
+
+function search(data){
+    let searchNode = document.getElementById('searchBox').value
+    let searchArray =[]
+
+    fetch("https://api.pexels.com/v1/search?query=" + searchNode, {
+    headers: {
+        Authorization: "563492ad6f9170000100000129ca9a39898c4d60b54d8276cc4d9c80"
+    }
+})
+    .then(resp => {
+        return resp.json()
+    })
+    .then(data => {
+        for(let i = 0; i<data.photos.length; i++){
+            
+            searchArray.push(data.photos[i])
+            
+        }
+        let SVGNode = document.querySelectorAll('.card.mb-4.shadow-sm')
+        
+    
+        
+        for (let i = 0; i < searchArray.length; i++) {
+            SVGNode[i].removeChild(SVGNode[i].children[0])
+            let IMGNode = document.createElement('img')
+            IMGNode.src = searchArray[i].src.medium
+            console.log(searchArray[i].src.medium)
+            SVGNode[i].insertBefore(IMGNode, SVGNode[i].firstChild);
+        }
+        
+    })
+    
+
+    
+
+    
+        
+    
+    
+}
+
+let searchNode = document.getElementById('buttonSearch')
+searchNode.addEventListener('click', search)
 
 window.onload = function(){ 
     hideIMG()
