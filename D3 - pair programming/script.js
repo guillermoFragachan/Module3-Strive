@@ -52,7 +52,7 @@ function loadIMGs(data) {
         SVGNode[i].removeChild(SVGNode[i].children[0])
         let IMGNode = document.createElement('img')
         IMGNode.src = data[i].src.medium
-        SVGNode[i].insertBefore(IMGNode, SVGNode[i].firstChild);
+        SVGNode[i].insertBefore(IMGNode, SVGNode[i].firstChild)
     }
 
     for(let i = 0; i < mins9Node.length; i++){
@@ -108,15 +108,19 @@ function search(data){
         }
         let SVGNode = document.querySelectorAll('.card.mb-4.shadow-sm')
         
-    
+        setTimeout(function() { alert(searchArray.length + `loaded imgs `); }, 200)
         
         for (let i = 0; i < searchArray.length; i++) {
             SVGNode[i].removeChild(SVGNode[i].children[0])
             let IMGNode = document.createElement('img')
             IMGNode.src = searchArray[i].src.medium
             console.log(searchArray[i].src.medium)
-            SVGNode[i].insertBefore(IMGNode, SVGNode[i].firstChild);
+            SVGNode[i].insertBefore(IMGNode, SVGNode[i].firstChild)
         }
+        
+        
+        
+
         
     })
     
