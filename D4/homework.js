@@ -55,9 +55,16 @@ fetch("https://striveschool-api.herokuapp.com/books", {
         let bodyNode = document.getElementsByClassName('list-group')[_value]
         bodyNode.appendChild(liNode)
 
+
+
         
 
 
+    }
+
+
+    function search(){
+        
     }
 
 
