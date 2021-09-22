@@ -52,12 +52,6 @@
                         </div>
                   </div>
             
-            
-            
-            
-            
-            
-            
             `
             rowNode.appendChild(elementNode)
 
@@ -105,18 +99,7 @@
 
 
       
-        async function sendData(obj) {
-            let response = await fetch('https://striveschool-api.herokuapp.com/api/product/', {
-                method: 'POST',
-                body: JSON.stringify(obj),
-                headers: new Headers({
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMWM5NDRiYjUzZDAwMTViMTllY2MiLCJpYXQiOjE2MzIzMTI0NjgsImV4cCI6MTYzMzUyMjA2OH0.MQK0IkMzaMTAcVrbR7hSi-OZAYCwk35tUrtFVQOG3jc",
-                    'Content-Type': 'application/json'
-                })
-            })
-
-        }
-
+        
 
 
 
