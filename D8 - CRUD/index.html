@@ -12,9 +12,14 @@
 </head>
 
 <body>
-    <h1>Homework CRUD</h1>
+    <h1>Homework CRUD - Products Available</h1>
 
-
+    <div class="container-fluid">
+        <div class="row">
+            
+            
+        </div>
+    </div>
 
 
 
@@ -26,35 +31,80 @@
         crossorigin="anonymous"></script>
     <script>
 
+        function createElement(_data) {
+            let rowNode = document.getElementsByClassName('row')[0]
+            let elementNode = document.createElement('div')
+            elementNode.classList.add('col-4')
+            elementNode.innerHTML=`
+            
+                <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                    <div class="my-3 p-3">
+                      <h2 class="display-5">${_data.name}</h2>
+                    
+                      <p class="lead">${_data.description}</p>
+                      <p class="lead">${_data.brand}</p>
+                      <p class="lead">${_data.price}</p>
+         
+                    </div>
+                    <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                        <img src="${_data.imageUrl}" class="img-fluid">
+                        
+                        </div>
+                  </div>
+            
+            
+            
+            
+            
+            
+            
+            `
+            rowNode.appendChild(elementNode)
+
+
+        }
+
+
+        /*
+        
+
+  "name": "app test 1",  //REQUIRED
+  "description": "somthing longer", //REQUIRED
+  "brand": "nokia", //REQUIRED
+  "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80", //REQUIRED
+  "price": 100, //REQUIRED
+
+
+        
+        
+        
+        
+        
+        */
+
         function getData() {
             fetch("https://striveschool-api.herokuapp.com/api/product/", {
                 headers: {
                     "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMWM5NDRiYjUzZDAwMTViMTllY2MiLCJpYXQiOjE2MzIzMTI0NjgsImV4cCI6MTYzMzUyMjA2OH0.MQK0IkMzaMTAcVrbR7hSi-OZAYCwk35tUrtFVQOG3jc"
                 }
             }).then(response => { return response.json() })
-                .then(data => console.log(data))
+                .then(data => {
+                    
+                    data.forEach(element => {
+                        createElement(element)
+                    });
+
+
+
+
+                })
 
         }
 
 
 
-        let obj = {
 
-
-            _id: "5d318e1a8541744830bef139", //SERVER GENERATED
-            name: "app test 1",  //REQUIRED
-            description: "somthing longer", //REQUIRED
-            brand: "nokia", //REQUIRED
-            imageUrl: "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80", //REQUIRED
-            price: 100, //REQUIRED
-            userId: "admin", //SERVER GENERATED
-            createdAt: "2019-07-19T09:32:10.535Z", //SERVER GENERATED
-            updatedAt: "2019-07-19T09:32:10.535Z", //SERVER GENERATED
-           
-
-
-
-        }
+      
         async function sendData(obj) {
             let response = await fetch('https://striveschool-api.herokuapp.com/api/product/', {
                 method: 'POST',
@@ -69,6 +119,10 @@
 
 
 
+
+        window.onload = function(){ 
+            getData()
+}
 
 
 
