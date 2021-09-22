@@ -13,22 +13,30 @@
   <body>
     <h1>Homework</h1>
 
-    <button type="button" onclick="display()" class="btn btn-primary">Display</button>
-    <button id="sort" type="button" onclick="display(true)" class="btn btn-secondary">Sort</button>
-    <div class="btn-group">
-        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Action
-        </button>
-        <ul class="dropdown-menu">
-          <li><a id="nameFilter" class="dropdown-item" href="#">name</a></li>
-          <li><a id="usernameFilter" class="dropdown-item" href="#">username</a></li>
-          <li><a id="emailFilter" class="dropdown-item" href="#">email</a></li>
-        </ul>
-      </div>
-
-      <input type="text" name="textvalue" id="input">
+    
 
     <div class="container-fluid mt-5">
+        <div class="row">
+          <div class="col-4">
+            <button type="button" onclick="display()" class="btn btn-primary">Display</button>
+            <button id="sort" type="button" onclick="display(true)" class="btn btn-secondary">Sort</button>
+            <div class="btn-group">
+                
+                <div class="input-group mb-3">
+                    
+                    <div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option value="1">name</option>
+                            <option value="2">username</option>
+                            <option value="3">email</option>
+                            <input type="text" name="textvalue" id="input">
+                          </select>
+                    </div>
+                  </div>
+          </div>
+
+      
+        </div>
         <div class="row">
 
 
