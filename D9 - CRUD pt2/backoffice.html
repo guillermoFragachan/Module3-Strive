@@ -59,8 +59,8 @@
         </div>
 
 
-        <button type="submit" class="btn btn-primary mt-2">Submit</button>
-        <button type="button" class="btn btn-danger mt-2" onclick='deleteData(idURL)'>delete</button>
+        <button id='button' type="submit" class="btn  mt-2">Submit</button>
+        <button id="delete" type="button" class="btn btn-danger mt-2" onclick='deleteData(idURL)'>delete</button>
       </form>
 
 
@@ -90,6 +90,8 @@
           })
         })
       }
+
+      setTimeout(() => window.location.assign("/"), 1000)
     }
 
     async function editData(_url, obj) {
@@ -173,16 +175,20 @@
       sendData(obj)}
 
 
-
-    }
+      setTimeout(() => window.location.assign("/"), 1000)
+        }
 
     const form = document.getElementsByTagName('form')[0]
+    const button1 = document.getElementById('button')
+    const buttonDelete = document.getElementById('delete')
 
     if (idURL) {
       
 //onsubmit="submitForm(event, idURL)"
       form.onsubmit = () => { submitForm(event, idURL) }
 
+      button1.classList.add('btn-success')
+      button1.innerText='Edit'
       
 
 
@@ -191,6 +197,8 @@
 
     } else {
       form.onsubmit = () => { submitForm(event) }
+      button1.classList.add('btn-primary')
+      buttonDelete.remove()
     }
 
 
