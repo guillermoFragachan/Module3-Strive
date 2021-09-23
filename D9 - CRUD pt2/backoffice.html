@@ -13,20 +13,20 @@
 
 <body>
   <nav class="navbar d-flex navbar-expand-lg navbar-light bg-light">
-      
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="navbar-brand" href="./index.html">Display</a>
-        </li>
-        <li class="nav-item">
-            <a class="navbar-brand" href="./backoffice.html">Form</a>
-        </li>
-        
-      </ul>
- 
 
-   
-    
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="navbar-brand" href="./index.html">Display</a>
+      </li>
+      <li class="nav-item">
+        <a class="navbar-brand" href="./backoffice.html">Form</a>
+      </li>
+
+    </ul>
+
+
+
+
   </nav>
   <h1>CRUD FORM</h1>
 
@@ -36,7 +36,7 @@
 
 
 
-      <form onsubmit="submitForm(event)">
+      <form >
         <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
           <input id="name" type="text" class="form-control">
@@ -57,16 +57,17 @@
           <label for="exampleInputEmail1">Price</label>
           <input id="price" type="number" class="form-control">
         </div>
-      
-     
+
+
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        <button type="button" class="btn btn-danger mt-2" onclick='deleteData(idURL)'>delete</button>
       </form>
 
 
     </div>
   </div>
 
-  <form onsubmit=""></form>
+  </form>
 
 
 
@@ -77,7 +78,55 @@
 
   <script>
 
-    
+    const idURL = new URLSearchParams(location.search).get("id")
+
+    async function deleteData(_url) {
+      if (_url) {
+        let response = await fetch('https://striveschool-api.herokuapp.com/api/product/' + _url, {
+          method: 'DELETE',
+          headers: new Headers({
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMWM5NDRiYjUzZDAwMTViMTllY2MiLCJpYXQiOjE2MzIzMTI0NjgsImV4cCI6MTYzMzUyMjA2OH0.MQK0IkMzaMTAcVrbR7hSi-OZAYCwk35tUrtFVQOG3jc",
+            'Content-Type': 'application/json'
+          })
+        })
+      }
+    }
+
+    async function editData(_url, obj) {
+      if (_url) {
+        console.log('dsadsa')
+        let response = await fetch('https://striveschool-api.herokuapp.com/api/product/' + _url, {
+          method: 'PUT',
+          body: JSON.stringify(obj),
+          headers: new Headers({
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMWM5NDRiYjUzZDAwMTViMTllY2MiLCJpYXQiOjE2MzIzMTI0NjgsImV4cCI6MTYzMzUyMjA2OH0.MQK0IkMzaMTAcVrbR7hSi-OZAYCwk35tUrtFVQOG3jc",
+            'Content-Type': 'application/json'
+          })
+        })
+      }
+
+    }
+
+    function getData(_url) {
+      fetch("https://striveschool-api.herokuapp.com/api/product/" + _url, {
+        headers: {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMWM5NDRiYjUzZDAwMTViMTllY2MiLCJpYXQiOjE2MzIzMTI0NjgsImV4cCI6MTYzMzUyMjA2OH0.MQK0IkMzaMTAcVrbR7hSi-OZAYCwk35tUrtFVQOG3jc"
+        }
+      }).then(response => { return response.json() }).then((data) => {
+
+        const { _id } = data
+        let name = document.getElementById('name').value = _id
+
+
+
+        console.log(_id)
+
+      })
+    }
+
+
+
+
 
     async function sendData(obj) {
       let response = await fetch('https://striveschool-api.herokuapp.com/api/product/', {
@@ -92,55 +141,69 @@
     }
 
 
-    function submitForm(_event){
+    function submitForm(_event,_url) {
       _event.preventDefault()
       let name = document.getElementById('name').value
       let description = document.getElementById('description').value
       let brand = document.getElementById('brand').value
       let imgurl = document.getElementById('imgurl').value
       let price = document.getElementById('price').value
-      
+
 
 
       let obj = {
 
-        name:name,
-        description:description,
-        brand:brand,
-        imageUrl:imgurl,
-        price:parseInt(price)
+        name: name,
+        description: description,
+        brand: brand,
+        imageUrl: imgurl,
+        price: parseInt(price)
 
 
 
 
 
       }
-      
-      sendData(obj)
 
-        /*
-        
+      if(_url){
+        console.log('edit')
+      editData(_url, obj)
 
-  "name": "app test 1",  //REQUIRED
-  "description": "somthing longer", //REQUIRED
-  "brand": "nokia", //REQUIRED
-  "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80", //REQUIRED
-  "price": 100, //REQUIRED
+      }else{
+      sendData(obj)}
 
 
-        
-        
-        
-        
-        
-        */
 
     }
-    
-    
+
+    const form = document.getElementsByTagName('form')[0]
+
+    if (idURL) {
+      
+//onsubmit="submitForm(event, idURL)"
+      form.onsubmit = () => { submitForm(event, idURL) }
+
+      
+
+
+
+
+
+    } else {
+      form.onsubmit = () => { submitForm(event) }
+    }
+
+
 
     window.onload = function () {
-        }
+
+
+
+
+
+
+
+    }
 
 
 
