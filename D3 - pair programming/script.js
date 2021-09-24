@@ -7,6 +7,9 @@ let dataArray = []
 let dataArray2 = []
 
 
+//URL OF DATAS
+
+
 // fetch URL + QUERY 
 fetch("https://api.pexels.com/v1/search?query=people", {
     headers: {
@@ -21,7 +24,12 @@ fetch("https://api.pexels.com/v1/search?query=people", {
        // console.log(data.photos[0].src.medium)
         for(let i = 0; i<data.photos.length; i++){
             dataArray.push(data.photos[i])
+
+            
+            
         }
+
+        
         
     })
 // API key:  563492ad6f9170000100000129ca9a39898c4d60b54d8276cc4d9c80
@@ -42,6 +50,7 @@ fetch("https://api.pexels.com/v1/search?query=dogs", {
             dataArray2.push(data.photos[i])
         }
         
+    let dataURLS= dataArray.map(x => x.url)
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -115,21 +124,31 @@ function search(data){
         let SVGNode = document.querySelectorAll('.card.mb-4.shadow-sm')
         
         setTimeout(function() { alert(searchArray.length + `loaded imgs `); }, 5000)
+
+
+        //filter
+        let newARR = searchArray.filter(photo=> photo.id === 1056251)
+
+        console.log(newARR)
         
         for (let i = 0; i < searchArray.length; i++) {
             SVGNode[i].removeChild(SVGNode[i].children[0])
             let IMGNode = document.createElement('img')
             IMGNode.src = searchArray[i].src.medium
-            console.log(searchArray[i].src.medium)
+            //console.log(searchArray[i].src.medium)
             SVGNode[i].insertBefore(IMGNode, SVGNode[i].firstChild)
         }
 
+        let dataURLS= dataArray.map(x => x.url)
         
         
         
 
         
-    }).catch(console.error('ERROR'))
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+      });
     
 
     
@@ -160,6 +179,8 @@ function loadCarousel(data){
 
 let searchNode = document.getElementById('buttonSearch')
 searchNode.addEventListener('click', search)
+
+
 
 window.onload = function(){ 
     hideIMG()
