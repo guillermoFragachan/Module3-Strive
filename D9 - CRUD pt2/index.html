@@ -41,7 +41,7 @@
 
     
 
-
+</body>
 
 
 
@@ -65,8 +65,9 @@
                       <p class="lead">${_data.brand}</p>
                       <p class="lead">${_data.price}</p>
                       <button type="button" class="btn btn-success" onclick="window.location.href='./backoffice.html?id=${_data._id}';" >Edit</button>
-                   
-         
+                      <button type="button" class="btn btn-primary" onclick="window.location.href='./detail.html?id=${_data._id}';" >Details</button>
+
+                        
                     </div>
                     <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                         <img src="${_data.imageUrl}" class="img-fluid">
@@ -77,7 +78,7 @@
             `
             rowNode.appendChild(elementNode)
 
-
+                  //detail.html
         }
 
 

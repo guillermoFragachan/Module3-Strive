@@ -17,7 +17,7 @@ fetch("https://api.pexels.com/v1/search?query=people", {
         return resp.json()
     })
     .then(data => {
-        console.log(data.photos)
+        
        // console.log(data.photos[0].src.medium)
         for(let i = 0; i<data.photos.length; i++){
             dataArray.push(data.photos[i])
@@ -36,12 +36,16 @@ fetch("https://api.pexels.com/v1/search?query=dogs", {
         return resp.json()
     })
     .then(data => {
+        loadCarousel(data.photos)
         for(let i = 0; i<data.photos.length; i++){
 
             dataArray2.push(data.photos[i])
         }
         
     })
+    .catch((error) => {
+        console.error('Error:', error);
+      });
 
 function loadIMGs(data) {
     let SVGNode = document.querySelectorAll('.card.mb-4.shadow-sm')
@@ -86,6 +90,8 @@ function hideIMG(){
         })
 
     }
+    
+
 }
 
 function search(data){
@@ -108,7 +114,7 @@ function search(data){
         }
         let SVGNode = document.querySelectorAll('.card.mb-4.shadow-sm')
         
-        setTimeout(function() { alert(searchArray.length + `loaded imgs `); }, 200)
+        setTimeout(function() { alert(searchArray.length + `loaded imgs `); }, 5000)
         
         for (let i = 0; i < searchArray.length; i++) {
             SVGNode[i].removeChild(SVGNode[i].children[0])
@@ -117,12 +123,13 @@ function search(data){
             console.log(searchArray[i].src.medium)
             SVGNode[i].insertBefore(IMGNode, SVGNode[i].firstChild)
         }
+
         
         
         
 
         
-    })
+    }).catch(console.error('ERROR'))
     
 
     
@@ -131,6 +138,24 @@ function search(data){
         
     
     
+}
+
+function loadCarousel(data){
+    let carousel = document.getElementsByClassName('carousel-inner')[0]
+    for(let i =0;i<3; i++){
+        let img = document.createElement('div')
+        img.classList.add('carousel-item', 'active')
+        img.innerHTML=`
+        <img src="${data[i].src.original}" class="d-block w-100" alt="...">
+        
+        
+        `
+
+        console.log(data[i].src.original
+            )
+
+        carousel.appendChild(img)
+    }
 }
 
 let searchNode = document.getElementById('buttonSearch')
